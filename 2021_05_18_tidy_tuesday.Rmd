@@ -1,0 +1,44 @@
+---
+author: "Adrian Lo"
+title: "TidyTemplate"
+date: 2021-05-21
+output: html_output
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(tidytuesdayR)
+library(quantmod)
+```
+
+# Import weekly data
+
+```{r Load}
+
+tt <- tt_load("2021-05-18")
+tt$survey
+lubridate::mdy_hms(tt$survey$timestamp) %>% head()
+lubridate::mdy_hms(tt$survey$timestamp) %>% tail()
+```
+
+# To get currency exchange rates
+
+Interesting link on how to get currency exchange rates in R: https://stackoverflow.com/questions/26694042/how-to-get-currency-exchange-rates-in-r
+
+
+
+# Save Image
+
+Save your image for sharing. Be sure to use the `#TidyTuesday` hashtag in your post on twitter! 
+
+```{r}
+
+# This will save your most recent plot
+ggsave(
+  filename = "My TidyTuesday Plot.png",
+  device = "png")
+
+```
